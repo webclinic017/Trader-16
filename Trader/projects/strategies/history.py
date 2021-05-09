@@ -18,7 +18,8 @@ def set_history(user, operation):
             if data:
                 if user in data:
                     data[user].append(operation)
-
+                else:
+                    data[user] = [operation]
                 with open(__history_path, 'w') as f:
                     json.dump(data, f, default=__converter)
                 return
